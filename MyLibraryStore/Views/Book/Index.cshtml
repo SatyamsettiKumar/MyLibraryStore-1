@@ -1,0 +1,18 @@
+﻿@model IEnumerable<BookDetail>
+@{
+    ViewBag.Title = "List of books";
+}
+
+<ul>
+    @foreach (var book in Model)
+    {
+        @*<li>@book.BookName</li>*@
+        <li><a asp-controller="Book" asp-Action="Details" Asp-Route-id="@book.Id">@book.BookName</a></li>
+    }
+</ul>
+<br />
+<div class="col-md-5">
+    <a asp-controller="Book" asp-action="Create">Create New</a>
+</div>
+
+

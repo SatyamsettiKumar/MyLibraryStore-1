@@ -1,0 +1,44 @@
+﻿@model BookDetail
+@{
+    ViewBag.Title = "Details Of Book";
+}
+@if (Model != null)
+{
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>Book Name</td>
+            <td>@Model.BookName</td>
+        </tr>
+        <tr>
+            <td>Author Name</td>
+            <td>@Model.Author</td>
+        </tr>
+        <tr>
+            <td>ISBN</td>
+            <td>@Model.ISBN</td>
+        </tr>
+        <tr>
+            <td>Published Date</td>
+            <td>@Model.PublishedDate</td>
+        </tr>
+        <tr>
+            <td>Genre</td>
+            <td>@Model.Genre</td>
+        </tr>
+    </table> }
+else
+{
+    <h2>No Books Available</h2>
+}
+
+<div class="row">
+    <div class="col-md-5">
+        <a asp-controller="Book" asp-action="Index">Back to Index</a>
+        <a style="margin-left:30px" asp-controller="Book" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-outline-info">Update</a>
+    </div>
+    <div class="col-md-5">
+        <form asp-controller="Book" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+            <button formmethod="post" class="btn btn-outline-danger">Delete</button>
+        </form>
+    </div>
+</div>
